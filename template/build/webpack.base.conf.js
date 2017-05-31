@@ -8,7 +8,6 @@ var
   projectRoot = path.resolve(__dirname, '../'),
   ProgressBarPlugin = require('progress-bar-webpack-plugin'),
   CopyWebpackPlugin = require('copy-webpack-plugin'),
-  SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin'),
   useCssSourceMap =
     (env.dev && config.dev.cssSourceMap) ||
     (env.prod && config.build.productionSourceMap)
@@ -100,12 +99,6 @@ module.exports = {
         to: path.resolve(__dirname, '../dist')
       }
     ], {}),
-    new SWPrecacheWebpackPlugin({
-      cacheId: 'my-quasar-app',
-      filename: 'service-worker.js',
-      minify: false,
-      stripPrefix: 'dist/'
-    }),
     new webpack.DefinePlugin({
       'process.env': config[env.prod ? 'build' : 'dev'].env,
       'DEV': env.dev,

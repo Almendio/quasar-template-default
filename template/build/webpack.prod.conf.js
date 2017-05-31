@@ -5,6 +5,7 @@ var
   webpack = require('webpack'),
   merge = require('webpack-merge'),
   baseWebpackConfig = require('./webpack.base.conf'),
+  SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
@@ -19,6 +20,12 @@ module.exports = merge(baseWebpackConfig, {
   },
   devtool: config.build.productionSourceMap ? '#source-map' : false,
   plugins: [
+    new SWPrecacheWebpackPlugin({
+      cacheId: 'my-quasar-app',
+      filename: 'service-worker.js',
+      minify: false,
+      stripPrefix: 'dist/'
+    }),
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: config.build.productionSourceMap,
       minimize: true,
