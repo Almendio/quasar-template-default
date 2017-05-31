@@ -1,6 +1,6 @@
 ![Quasar Framework logo](http://quasar-framework.org/images/logo/xxhdpi.png)
 
-# Quasar Framework Default App Template
+# Quasar Framework TypeScript PWA Template
 > TypeScript-based Starter Kit for a Quasar Framework Project that provides a PWA out of the box.
 > Based on the [default Quasar template](https://github.com/quasarframework/quasar-template-default)
 
