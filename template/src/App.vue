@@ -32,12 +32,12 @@ export default class App extends Vue {
             // updatefound is also fired the very first time the SW is installed
             if (isServiceWorkerInstalled) {
               // The updatefound event implies that registration.installing is set
-              const installingWorker = registration.installing;
+              const installingWorker = registration.installing
               installingWorker!.onstatechange = function() {
                 switch (installingWorker!.state) {
                   case 'installed':
                     Toast.create.positive('New content is available, please reload.')
-                    break;
+                    break
                   case 'redundant':
                     throw new Error('The installing service worker became redundant.')
                 }
